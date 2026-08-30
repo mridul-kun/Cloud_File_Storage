@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Haven — Your Files, Safeguarded</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app" id="appRoot">
+
+        <!-- ===== Mobile top bar ===== -->
+        <div class="mobile-bar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="mobile-brand">
+                <div class="brand" id="brandLogo" style="cursor:pointer;"></div>
+                <div class="mobile-brand" id="mobileBrandLogo" style="cursor:pointer;"></div>
+                <svg class="mark" viewBox="0 0 40 40" fill="none">
+                    <rect x="4" y="8" width="32" height="26" rx="3" stroke="currentColor" stroke-width="2" />
+                    <path d="M4 16h32" stroke="currentColor" stroke-width="2" />
+                    <circle cx="20" cy="24" r="4.2" stroke="currentColor" stroke-width="2" />
+                </svg>
+                Safe Haven
+            </div>
+            <div class="brand-shape-wrap">
+                <!-- Toggle Icon Button -->
+                <button class="brand-shape" id="brandShape" title="Toggle Layout" aria-label="Toggle Layout">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+                        <path d="M8 7.5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    </svg>
+                </button>
+
+                <!-- Hover Dropdown Menu -->
+                <div class="view-hover-card">
+                    <button class="view-opt active" data-mode="grid">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="4" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.7" />
+                            <rect x="13" y="4" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.7" />
+                            <rect x="4" y="13" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.7" />
+                            <rect x="13" y="13" width="7" height="7" rx="1.3" stroke="currentColor"
+                                stroke-width="1.7" />
+                        </svg>
+                        <span>Grid view</span>
+                    </button>
+                    <button class="view-opt" data-mode="list">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" />
+                        </svg>
+                        <span>List view</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- ===== Sidebar ===== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="brand-left">
+                    <svg class="brand-cloud" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7.5 18h9.7a3.8 3.8 0 0 0 .5-7.56 5.5 5.5 0 0 0-10.6-2.05A4.3 4.3 0 0 0 7.5 18Z"
+                            stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                    </svg>
+                    <h1 class="brand-title">Safe Haven</h1>
+                </div>
+
+                <!-- Right-Aligned Layout Shape Toggle -->
+                <!-- Sidebar collapse toggle -->
+                <button class="brand-shape" id="sidebarCollapseBtn" title="Collapse sidebar"
+                    aria-label="Collapse sidebar"> <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+                        <path d="M8 7.5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav" id="navList">
+                <button class="nav-item active" data-view="files">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                            stroke="currentColor" stroke-width="1.7" />
+                    </svg>
+                    My Files
+                </button>
+                <button class="nav-item" data-view="recent">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7" />
+                        <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                    </svg>
+                    Recent
+                </button>
+                <button class="nav-item" data-view="backups">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3 4 6.5v5c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5v-5L12 3Z" stroke="currentColor"
+                            stroke-width="1.7" stroke-linejoin="round" />
+                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Backups
+                </button>
+                <button class="nav-item" data-view="trash">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-9 0 1 12.5A1.5 1.5 0 0 0 8.5 21h7a1.5 1.5 0 0 0 1.5-1.5L18 7"
+                            stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                    </svg>
+                    Trash
+                </button>
+                <button class="nav-item" data-view="settings">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7" />
+                        <path
+                            d="M19.4 13a7.97 7.97 0 0 0 0-2l2.02-1.57-2-3.46-2.38.96a8.07 8.07 0 0 0-1.73-1L15 3.6h-4l-.31 2.33a8.07 8.07 0 0 0-1.73 1l-2.38-.96-2 3.46L6.6 11a7.97 7.97 0 0 0 0 2l-2.02 1.57 2 3.46 2.38-.96c.53.43 1.12.77 1.73 1L11 20.4h4l.31-2.33c.61-.23 1.2-.57 1.73-1l2.38.96 2-3.46L19.4 13Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    Settings
+                </button>
+            </nav>
+
+            <div class="storage-widget">
+                <div class="dial" id="storageDial">
+                    <svg viewBox="0 0 120 120" class="dial-svg">
+                        <circle cx="60" cy="60" r="52" class="dial-track" />
+                        <circle cx="60" cy="60" r="52" class="dial-fill" id="dialFill" />
+                        <g id="dialTicks"></g>
+                        <circle cx="60" cy="60" r="35" class="dial-face" />
+                        <text x="60" y="56" text-anchor="middle" class="dial-percent" id="dialPercent">0%</text>
+                        <text x="60" y="72" text-anchor="middle" class="dial-label">USED</text>
+                    </svg>
+                </div>
+                <div class="storage-info">
+                    <strong><span id="storageUsedText">0 MB</span> <span class="of">of</span> <span
+                            id="storageTotalText">15 GB</span></strong>
+                    <p class="storage-hint">Kept safe here even if your device isn't.</p>
+                </div>
+            </div>
+
+            <button class="btn-vault" id="exportBackupBtn">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" />
+                </svg>
+                Download full backup
+            </button>
+            <button class="btn-vault-secondary" id="importBackupBtn">Restore a backup file</button>
+            <input type="file" id="restoreInput" accept=".zip" hidden>
+        </aside>
+
+        <!-- ===== Main ===== -->
+        <main class="main">
+            <header class="topbar">
+                <div class="breadcrumb" id="breadcrumb"></div>
+                <div class="search">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8" />
+                        <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search your vault…">
+                </div>
+                <div class="topbar-actions">
+                    <button class="btn-outline" id="emptyTrashBtn" style="display:none;">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-9 0 1 12.5A1.5 1.5 0 0 0 8.5 21h7a1.5 1.5 0 0 0 1.5-1.5L18 7"
+                                stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                        </svg>
+                        <span>Empty trash</span>
+                    </button>
+                    <button class="btn-outline" id="newFolderBtn">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+                                stroke="currentColor" stroke-width="1.6" />
+                        </svg>
+                        <span>New folder</span>
+                    </button>
+                    <div class="upload-wrap">
+                        <button class="btn-solid" id="uploadBtn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 16V5m0 0 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor"
+                                    stroke-width="1.9" stroke-linecap="round" />
+                            </svg>
+                            <span>Upload</span>
+                        </button>
+                        <div class="upload-menu" id="uploadMenu">
+                            <button id="uploadFilesOpt">Upload files</button>
+                            <button id="uploadFolderOpt">Upload folder</button>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInput" multiple hidden>
+                    <input type="file" id="folderInput" webkitdirectory directory multiple hidden>
+                    <div class="view-toggle" id="viewToggle">
+                        <button data-mode="grid" class="active" aria-label="Grid view"><svg viewBox="0 0 24 24"
+                                fill="none">
+                                <rect x="4" y="4" width="7" height="7" rx="1.3" stroke="currentColor"
+                                    stroke-width="1.7" />
+                                <rect x="13" y="4" width="7" height="7" rx="1.3" stroke="currentColor"
+                                    stroke-width="1.7" />
+                                <rect x="4" y="13" width="7" height="7" rx="1.3" stroke="currentColor"
+                                    stroke-width="1.7" />
+                                <rect x="13" y="13" width="7" height="7" rx="1.3" stroke="currentColor"
+                                    stroke-width="1.7" />
+                            </svg></button>
+                        <button data-mode="list" aria-label="List view"><svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" />
+                            </svg></button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="content" id="content">
+                <div class="selection-bar" id="selectionBar"></div>
+                <div class="list-head" id="listHead">
+                    <span class="col-name">Name</span>
+                    <span class="col-size">Size</span>
+                    <span class="col-date">Modified</span>
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <svg viewBox="0 0 120 90" fill="none" class="empty-art">
+                        <rect x="10" y="24" width="100" height="58" rx="6" stroke="currentColor" stroke-width="2" />
+                        <path d="M10 40h100" stroke="currentColor" stroke-width="2" />
+                        <circle cx="60" cy="61" r="12" stroke="currentColor" stroke-width="2" />
+                        <path d="M60 55v6l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M34 24 44 10h32l10 14" stroke="currentColor" stroke-width="2"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <h3 id="emptyTitle">This vault is empty</h3>
+                    <p id="emptyText">Drag files in, or use Upload to get started. Everything you add stays here, safe,
+                        even if your device doesn't.</p>
+                </div>
+                <div class="file-grid" id="fileGrid"></div>
+            </section>
+
+            <div class="dropzone-overlay" id="dropOverlay">
+                <div class="dropzone-inner">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 16V5m0 0 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p>Drop to place in the vault</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== Modal ===== -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal" id="modal"></div>
+    </div>
+
+    <!-- ===== Context menu ===== -->
+    <div class="context-menu" id="contextMenu"></div>
+
+    <!-- ===== Toasts ===== -->
+    <div class="toast-stack" id="toastStack"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
